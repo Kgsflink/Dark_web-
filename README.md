@@ -189,3 +189,41 @@ Since `torsocks` is no longer supported for security reasons, you can use `torif
     ```
 
 If you encounter any issues with the installation or usage of `torify` or `torsocks`, make sure to update your Termux packages (`pkg update && pkg upgrade`) and try again. If the issue persists, you may need to check the installation logs or seek further assistance.
+
+
+To use a list of proxies from a text file with `torify` and `w3m`, you can use the `--tor-socks-proxy` option with `torify` to specify the path to the text file containing the proxy list. Here's how you can do it:
+
+1. **Create a Text File with Proxy List**: Create a text file with one proxy per line. Each line should be in the format `proxy:port`. For example:
+
+    ```
+    proxy1:port1
+    proxy2:port2
+    proxy3:port3
+    ```
+
+    Save this file with a name like `proxies.txt`.
+
+2. **Install Required Packages**: If you haven't already, install the `w3m` and `tor` packages:
+
+    ```bash
+    pkg install w3m
+    pkg install tor
+    ```
+
+3. **Start Tor**: Start the Tor service by running the following command:
+
+    ```bash
+    tor
+    ```
+
+4. **Configure Tor**: Tor will automatically configure itself. Wait for a few seconds until you see a message indicating that Tor is ready.
+
+5. **Run w3m with Tor and Proxy List**: You can use the `torify` command to run `w3m` with Tor and a proxy list from the text file. For example, to access the dark web using `w3m` with a proxy list from the text file, you can use the following command:
+
+    ```bash
+    torify --tor-socks-proxy "file://path/to/proxies.txt" w3m http://example.onion
+    ```
+
+    Replace `path/to/proxies.txt` with the actual path to the text file containing the proxy list. Replace `http://example.onion` with the URL of the dark web website you want to access.
+
+Please note that accessing the dark web has legal and ethical implications, and you should ensure you're using it responsibly and in compliance with the law. Additionally, be aware that many dark web websites may contain illegal or harmful content, so exercise caution when browsing the dark web.
