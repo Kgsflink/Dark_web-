@@ -106,6 +106,20 @@ Alternatively, you can use the `netstat` command to check if Apache is listening
 
 If Apache is not running, you can start it using the `apachectl start` command.
 
+To stop the Apache web server in Termux, you can use the `apachectl` command with the `stop` option. Here's how you can do it:
+
+1. Open Termux on your Android device.
+
+2. Run the following command to stop the Apache web server:
+
+    ```bash
+    apachectl stop
+    ```
+
+3. If Apache was running, it should now be stopped.
+
+Please note that stopping the Apache web server will prevent it from serving web pages, so make sure to stop it only if you no longer need it to be running.
+
 To run a Tor instance in Termux, you can use the following command:
 
 ```bash
